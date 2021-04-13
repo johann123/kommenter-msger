@@ -26,4 +26,5 @@ services:
       - 9300:9300
       - 9200:9200
     environment:
+      - node.name=elastic
       - cluster.initial_master_nodes=elastic
