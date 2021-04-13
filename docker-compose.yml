@@ -1,0 +1,29 @@
+version: "3.2"
+services:
+  rabbitmq:
+    build: docker/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./docker/rabbitmq/data/:/var/lib/rabbitmq/mnesia
+      - ./docker/rabbitmq/log/:/var/log/rabbitmq
+
+  php:
+    build: docker/php
+    volumes:
+      - ./:/var/tmp
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    links:
+      - rabbitmq
+      - elastic
+
+  elastic:
+    build: docker/es
+    ports:
+      - 9300:9300
+      - 9200:9200
+    environment:
+      - cluster.initial_master_nodes=elastic

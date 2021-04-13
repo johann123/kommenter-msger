@@ -1,0 +1,22 @@
+{
+  "name": "johannsan123/kommenter-msger",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Vasbányai János",
+      "email": "vasbanyai.j@gmail.com"
+    }
+  ],
+  "description": "Helper project az elastic-os post indexeléshez.",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"
+    }
+  },
+  "require": {
+    "php-amqplib/php-amqplib": ">=3.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  }
+}

@@ -1,0 +1,8 @@
+
+docker/rabbitmq/data/
+
+docker/rabbitmq/log/
+
+.idea/
+
+vendor/
